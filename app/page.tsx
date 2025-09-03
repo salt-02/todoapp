@@ -155,6 +155,14 @@ export default function TodoApp() {
         <header className="text-center mb-8">
           <h1 className="text-3xl font-bold text-green-600 mb-2">Todo App</h1>
           <p className="text-muted-foreground">シンプルなタスク管理アプリ</p>
+          {todos.length > 0 && (
+            <div className="mt-4 inline-flex items-center gap-2 bg-green-50 dark:bg-green-900/20 px-4 py-2 rounded-full">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              <span className="text-sm font-medium text-green-700 dark:text-green-300">
+                進行中: {todos.filter((todo) => !todo.completed).length}件 / 全{todos.length}件
+              </span>
+            </div>
+          )}
         </header>
 
         {/* Add Todo Form */}
